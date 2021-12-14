@@ -1,0 +1,34 @@
+public with sharing class RentedBike {
+    public integer times;
+    public decimal decHours;
+    public cust_Ride__c custRide {get;set;}
+    public customer__c custinfo {get;set;}
+    public map<string,Object> inputMap {get;set;}
+    public RentedBike() {
+        custRide = new cust_Ride__c();
+        inputMap = new map<string,Object>();
+        custinfo = new customer__c();
+    }
+    public PageReference Savevalue() {
+        datetimevalue();
+        inputMap.put('1) customer ',custinfo.Name);
+        inputMap.put('2) Starting kilometer',custRide.Starting_KM__c);
+        inputMap.put('3) Ending kilometer',custRide.Ending_KM__c);
+        inputMap.put('5) Ride Starting Date',custRide.Ride_Starting_Date__c);
+        inputMap.put('6) Ride Ending Date',custRide.Ride_Ending_Date__c);
+        inputMap.put('7) Active Price',80);
+        inputMap.put('8) Previous Price',75);
+        inputMap.put('9) Current Price',84);
+        inputMap.put('Total Riding Time',decHours);
+        inputMap.put('4) Total kilometer',(custRide.Ending_KM__c - custRide.Starting_KM__c));
+        inputMap.put('Bill Amount',(75 * decHours ));
+        system.debug(inputmap);
+        PageReference p =  Page.RentedVP2;
+        p.setRedirect(false);
+        return p;
+    }
+    public void datetimevalue(){
+
+         decHours =  (((custRide.Ride_Ending_Date__c.getTime())/1000/60/60) - (custRide.Ride_Starting_Date__c.getTime())/1000/60/60);
+    }
+}

@@ -1,0 +1,48 @@
+<apex:page controller="RentedBike">
+    <apex:form >
+
+
+        <apex:pageblock title="Rented Bike Billing">
+            
+            <apex:pageblocksection columns="1" title="Rented Bike Billing" collapsible="false" >
+                
+                
+                
+                <apex:pageblocksectionitem >
+                    <apex:outputLabel >Customer Name</apex:outputLabel>
+                    <apex:inputField value="{!custinfo.Name}" />
+                </apex:pageblocksectionitem>
+                
+                
+                <apex:pageblocksectionitem >
+                    <apex:outputLabel >Starting kilometer</apex:outputLabel>
+                    <apex:inputField value="{!custRide.Starting_KM__c}" />
+                </apex:pageblocksectionitem>
+                
+                <apex:pageblockSectionItem >
+                    <apex:outputLabel >Ending kilometer</apex:outputLabel>
+                    <apex:inputField value="{!custRide.Ending_KM__c}" />
+                </apex:pageblockSectionItem>
+                
+                <apex:pageblockSectionItem >
+                    <apex:outputLabel >Ride Satrting Date</apex:outputLabel>
+                    <apex:inputField value="{!custRide.Ride_Starting_Date__c}" />
+                </apex:pageblockSectionItem>
+                
+                <apex:pageblockSectionItem >
+                    <apex:outputLabel >Ride Ending Date</apex:outputLabel>
+                    <apex:inputField value="{!custRide.Ride_Ending_Date__c}" />
+                </apex:pageblockSectionItem>
+            </apex:pageblocksection>
+            
+            <apex:pageBlockButtons >
+                <apex:commandButton action="{!Savevalue}" value="Save"  /> 
+
+            </apex:pageBlockButtons>
+            
+            
+            
+            
+        </apex:pageblock>
+    </apex:form>
+</apex:page>

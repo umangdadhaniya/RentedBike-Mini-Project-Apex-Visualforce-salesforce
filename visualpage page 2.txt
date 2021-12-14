@@ -1,0 +1,14 @@
+<apex:page Controller="RentedBike">
+    <apex:form >
+        <apex:pageBlock title="Rented Bike Billing">
+            
+
+            <apex:pageBlockTable value="{!inputMap}" var="inputMapKey"  >
+                <apex:column value="{!inputMapKey}" /> 
+                <apex:column value="{!inputMap[inputMapKey]}"/>  
+            </apex:pageBlockTable>
+            
+            
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>
